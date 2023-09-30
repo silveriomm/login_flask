@@ -1,0 +1,17 @@
+<div>
+    {% if current_user.is_authenticated %}
+        <h1>Bem-vindo {{ current_user.name }}!</h1>
+        <h3>Voce esta logago</h3>
+    {% else %}
+        <h1>Bem-vindo Visitante!</h1>
+        <h3>Voce nao esta logado</h3>
+    {% endif %}
+    <ul style="list-style:none;">
+    {% if current_user.is_authenticated %}
+    <li><a href="{{ url_for('logout') }}">Logout</a></li>
+    {% else %}
+    <li><a href="{{ url_for('register') }}">Registro</a></li>
+    <li><a href="{{ url_for('login') }}">Login</a></li>    
+    {% endif %}
+    <ul>
+</div>
